@@ -15,6 +15,10 @@ export class HeroComponent {
 
     onSubmit(){ this.submitted = true;}
 
+    newHero() {
+        this.model = new Hero(42, '', '');
+    }
+
     //TODO
     get diagnostic() { return JSON.stringify(this.model);}
 }
