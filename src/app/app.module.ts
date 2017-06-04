@@ -1,12 +1,11 @@
+import { NgModule }            from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule }          from '@angular/http';
+
+import { AppComponent }  from './app.component';
 import { HeroComponent } from './hero-form.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { DataService }   from './data.service';
 
-import { AppComponent } from './app.component';
-
-import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -14,8 +13,7 @@ import { DataService } from './data.service';
     HeroComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
+    ReactiveFormsModule,
     HttpModule
   ],
   providers: [DataService],
