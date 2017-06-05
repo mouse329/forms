@@ -20,10 +20,9 @@ export class HeroComponent implements OnInit {
     
     heroForm: FormGroup;
     constructor(
-        private dataService: DataService,
-        private fb: FormBuilder
+        private fb: FormBuilder,
+        private dataService: DataService
     ){}
-
 
     submitted = false;
 
@@ -95,13 +94,10 @@ export class HeroComponent implements OnInit {
         }
     }
 
-    model = new Hero(18, 'Dr IQ','', 'Chuck Overstreet');
-
-    submitted = false;
 
 
     // TODO: Remove this when we're done
-    get diagnostic() { return JSON.stringify(this.model); }
+    get diagnostic() { return JSON.stringify(this.hero); }
 
     newHero() {
     this.model = new Hero(42, '', '');
