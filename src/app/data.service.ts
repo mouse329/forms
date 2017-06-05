@@ -9,8 +9,8 @@ import { Dist } from './dist';
 
 @Injectable()
 export class DataService{
-    private branchesUrl = 'http://3000/api/v1/branches';
-    private distsUrl ='http://3000/api/v1/dists';
+    private branchesUrl = 'http://godnodejs.hopto.org:3000/api/v1/branches';
+    private distsUrl ='http://godnodejs.hopto.org:3000/api/v1/dists';
 
     constructor (private http: Http) {}
 

@@ -16,8 +16,9 @@ export class HeroComponent implements OnInit {
     powers = ['Really Smart', 'Super Flexible', 'Weather Changer'];
     hero = new Hero(18, 'Dr. WhatIsHisName', this.powers[0], 'Dr. What');
     dists: Dist[];
-
-    
+    errorMessage: string;
+    mode = 'Observable';
+        
     heroForm: FormGroup;
     constructor(
         private fb: FormBuilder,
@@ -26,13 +27,10 @@ export class HeroComponent implements OnInit {
 
     submitted = false;
 
-    onSubmit() { 
-        this.submitted = true;
-        this.hero = this.heroForm.value; 
-    }
 
     ngOnInit(): void { 
-        this.buildForm(); 
+        this.buildForm();
+        this.getDists()
     }
 
     getDists(){
@@ -61,6 +59,10 @@ export class HeroComponent implements OnInit {
         this.onVauleChanged();
     };
 
+    onSubmit() { 
+        this.submitted = true;
+        this.hero = this.heroForm.value; 
+    }
     onVauleChanged(data?: any) {
         if (!this.heroForm) { return }
         const form = this.heroForm;
@@ -98,17 +100,5 @@ export class HeroComponent implements OnInit {
 
     // TODO: Remove this when we're done
     get diagnostic() { return JSON.stringify(this.hero); }
-
-    newHero() {
-    this.model = new Hero(42, '', '');
-    }
-
-    skyDog(): Hero {
-    let myHero =  new Hero(42, 'SkyDog',
-                            'Fetch any object at any distance',
-                            'Leslie Rollover');
-    console.log('My hero is called ' + myHero.name); // "My hero is called SkyDog"
-    return myHero;
-    }
 
 }
