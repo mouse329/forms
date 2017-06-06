@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { Dist } from './dist';
-import { Hero } from './hero';
+import { DataService } from './../data.service';
+import { Hero } from './../hero';
+import { Dist } from './../dist';
 
-import { DataService } from './data.service';
+
 
 @Component({
     selector:'hero-form',
@@ -26,8 +27,7 @@ export class HeroComponent implements OnInit {
     ){}
 
     submitted = false;
-
-
+    active = true;
     ngOnInit(): void { 
         this.buildForm();
         this.getDists()
@@ -46,7 +46,7 @@ export class HeroComponent implements OnInit {
             'name': [
                 this.hero.name,[
                     Validators.required,
-                    Validators.minLength(4),
+                    Validators.minLength(2),
                     Validators.maxLength(24),
                 ]
             ],
@@ -88,7 +88,7 @@ export class HeroComponent implements OnInit {
     validationMessages = {
         'name': {
             'required': 'Name is required',
-            'minlength': 'Name must be at least 4 characters long',
+            'minlength': 'Name must be at least 2 characters long',
             'maxlength': 'Name cannot be more than 24 characters long',
         },
         'power':{
